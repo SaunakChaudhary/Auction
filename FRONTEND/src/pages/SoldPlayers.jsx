@@ -35,13 +35,13 @@ const SoldPlayers = () => {
     const getProxyImageUrl = (url) => {
         if (!url) return "";
         const id = url.split("id=")[1];
-        return `http://localhost:5000/api/players/drive-image/${id}`;
+        return `https://auction-gje0.onrender.com/api/players/drive-image/${id}`;
     };
 
     const fetchSoldPlayers = async () => {
         try {
             setLoading(true);
-            const res = await fetch("http://localhost:5000/api/players/sold-players");
+            const res = await fetch("https://auction-gje0.onrender.com/api/players/sold-players");
             const data = await res.json();
             setSoldPlayers(data.data || []);
         } catch (err) {

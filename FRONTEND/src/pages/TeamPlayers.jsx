@@ -37,13 +37,13 @@ const TeamPlayers = () => {
     const getProxyImageUrl = (url) => {
         if (!url) return "";
         const id = url.split("id=")[1];
-        return `http://localhost:5000/api/players/drive-image/${id}`;
+        return `https://auction-gje0.onrender.com/api/players/drive-image/${id}`;
     };
 
     const fetchTeam = async () => {
         try {
             setLoading(true);
-            const res = await fetch(`http://localhost:5000/api/teams`);
+            const res = await fetch(`https://auction-gje0.onrender.com/api/teams`);
             const data = await res.json();
             const team = data.find((t) => t._id === teamId);
             console.log(team);

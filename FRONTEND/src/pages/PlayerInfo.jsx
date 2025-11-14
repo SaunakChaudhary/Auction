@@ -37,7 +37,7 @@ const PlayerInfo = () => {
     const getProxyImageUrl = (url) => {
         if (!url) return "";
         const id = url.split("id=")[1];
-        return `http://localhost:5000/api/players/drive-image/${id}`;
+        return `https://auction-gje0.onrender.com/api/players/drive-image/${id}`;
     };
 
     const loadPlayerData = async () => {
@@ -45,7 +45,7 @@ const PlayerInfo = () => {
             setLoading(true);
             setError(null);
 
-            const response = await fetch(`http://localhost:5000/api/players/player/${id}`);
+            const response = await fetch(`https://auction-gje0.onrender.com/api/players/player/${id}`);
             const playerData = await response.json();
 
             if (!response.ok) {
@@ -55,7 +55,7 @@ const PlayerInfo = () => {
             setPlayer(playerData.data);
 
             // Also load teams to get team information if player is assigned
-            const teamsResponse = await fetch("http://localhost:5000/api/teams");
+            const teamsResponse = await fetch("https://auction-gje0.onrender.com/api/teams");
             const teamsData = await teamsResponse.json();
             setTeams(teamsData);
 

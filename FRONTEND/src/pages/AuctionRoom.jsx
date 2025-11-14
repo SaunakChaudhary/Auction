@@ -21,19 +21,19 @@ const AuctionRoom = () => {
     const getProxyImageUrl = (url) => {
         if (!url) return "";
         const fileId = url.split("id=")[1];
-        return `http://localhost:5000/api/players/drive-image/${fileId}`;
+        return `https://auction-gje0.onrender.com/api/players/drive-image/${fileId}`;
     };
 
     const [search, setSearch] = useState("");
 
     const fetchTeamsList = async () => {
-        const res = await fetch("http://localhost:5000/api/teams");
+        const res = await fetch("https://auction-gje0.onrender.com/api/teams");
         setTeamsList(await res.json());
     };
 
     const updateAuctionPlayer = async (playerId, price, teamId) => {
         console.log({ price, teamAssigned: teamId })
-        const res = await fetch(`http://localhost:5000/api/players/auction/${playerId}`, {
+        const res = await fetch(`https://auction-gje0.onrender.com/api/players/auction/${playerId}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ price, teamAssigned: teamId }),
@@ -51,7 +51,7 @@ const AuctionRoom = () => {
         setLoading(true);
         try {
             const res = await fetch(
-                `http://localhost:5000/api/players/player/${id}`
+                `https://auction-gje0.onrender.com/api/players/player/${id}`
             );
             const data = await res.json();
             setCurrentPlayer(data.data);

@@ -26,7 +26,7 @@ const Teams = () => {
     const getProxyImageUrl = (url) => {
         if (!url) return "";
         const fileId = url.split("id=")[1];
-        return `http://localhost:5000/api/players/drive-image/${fileId}`;
+        return `https://auction-gje0.onrender.com/api/players/drive-image/${fileId}`;
     };
 
     const [formData, setFormData] = useState({
@@ -46,7 +46,7 @@ const Teams = () => {
     // Submit new team
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const res = await fetch("http://localhost:5000/api/teams", {
+        const res = await fetch("https://auction-gje0.onrender.com/api/teams", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(formData),
@@ -66,7 +66,7 @@ const Teams = () => {
 
     useEffect(() => {
         const fetchTeams = async () => {
-            const res = await fetch("http://localhost:5000/api/teams");
+            const res = await fetch("https://auction-gje0.onrender.com/api/teams");
             const data = await res.json();
             setTeams(data);
         };

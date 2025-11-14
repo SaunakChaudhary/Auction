@@ -37,7 +37,7 @@ const AdminDashboard = () => {
   const getProxyImageUrl = (url) => {
     if (!url) return "";
     const fileId = url.split("id=")[1];
-    return `http://localhost:5000/api/players/drive-image/${fileId}`;
+    return `https://auction-gje0.onrender.com/api/players/drive-image/${fileId}`;
   };
 
   const [teams, setTeams] = useState([]);

@@ -10,7 +10,7 @@ const ListofPlayer = () => {
     const [playerData, setPlayerData] = useState([]);
     useEffect(() => {
         const fetchPlayerInfo = async () => {
-            const response = await fetch('http://localhost:5000/api/players');
+            const response = await fetch('https://auction-gje0.onrender.com/api/players');
             const data = await response.json();
             setPlayerData(data);
         };
@@ -20,7 +20,7 @@ const ListofPlayer = () => {
     const getProxyImageUrl = (url) => {
         if (!url) return "";
         const fileId = url.split("id=")[1];
-        return `http://localhost:5000/api/players/drive-image/${fileId}`;
+        return `https://auction-gje0.onrender.com/api/players/drive-image/${fileId}`;
     };
     return (
         <div className="flex h-screen bg-gray-50">
